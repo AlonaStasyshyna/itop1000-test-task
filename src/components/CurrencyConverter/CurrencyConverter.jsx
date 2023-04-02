@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { CurrencyConverterForm } from 'components/CurrencyConverterForm/CurrencyConverterForm';
+import { Title } from './CurrencyConverter.styled';
 
 export const CurrencyConverter = ({ rates }) => {
   const [newRates, setNewRates] = useState([]);
@@ -19,7 +20,7 @@ export const CurrencyConverter = ({ rates }) => {
   return (
     <main>
       <section>
-        <h2>Конвертер валют</h2>
+        <Title>Конвертер валют</Title>
 
         <CurrencyConverterForm rates={newRates} />
       </section>

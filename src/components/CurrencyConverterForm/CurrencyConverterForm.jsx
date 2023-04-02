@@ -1,4 +1,11 @@
 import { useEffect, useState } from 'react';
+import {
+  ErrorMessage,
+  Form,
+  Input,
+  Label,
+  Select,
+} from './CurrencyConverterForm.styled';
 
 export const CurrencyConverterForm = ({ rates }) => {
   const [firstRate, setFirstRate] = useState(0);
@@ -40,9 +47,9 @@ export const CurrencyConverterForm = ({ rates }) => {
 
   return (
     <>
-      <form>
-        <label>
-          <select name="firstRate" onChange={changeCurrency}>
+      <Form>
+        <Label>
+          <Select name="firstRate" onChange={changeCurrency}>
             <option value={firstRate}>Оберіть валюту</option>
             {rates
               .map(({ r030: id, txt, rate }) => (
@@ -51,30 +58,32 @@ export const CurrencyConverterForm = ({ rates }) => {
                 </option>
               ))
               .reverse()}
-          </select>
-          <input
+          </Select>
+          <Input
             type="number"
             name="amount"
             min="0"
             value={amount}
             onChange={changeAmount}
           />
-        </label>
 
-        {error && <p>Please enter a positive number</p>}
+          {error && <ErrorMessage>Please enter a positive number</ErrorMessage>}
+        </Label>
 
-        <label>
-          <select name="secondRate" onChange={changeCurrency}>
+        <span>&#10231;</span>
+
+        <Label>
+          <Select name="secondRate" onChange={changeCurrency}>
             <option value={secondRate}>Оберіть валюту</option>
             {rates.map(({ r030: id, txt, rate }) => (
               <option key={id} value={Number(rate)}>
                 {txt}
               </option>
             ))}
-          </select>
-          <input type="number" name="result" value={result} disabled />
-        </label>
-      </form>
+          </Select>
+          <Input type="number" name="result" value={result} disabled />
+        </Label>
+      </Form>
     </>
   );
 };
