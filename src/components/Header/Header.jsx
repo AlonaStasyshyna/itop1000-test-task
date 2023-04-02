@@ -1,20 +1,22 @@
+import { Date, Item, List, Text, Title } from './Header.styled';
+
 export const Header = ({ rates }) => {
   return (
     <header>
-      <h1>Курси валют</h1>
-      <p>{rates[0].exchangedate}</p>
+        <Title>Курси валют</Title>
+        <Date>{rates[0].exchangedate}</Date>
 
-      <ul>
+      <List>
         {rates.map(({ r030: id, rate, cc: currency }) => (
-          <li key={id}>
-            <p>
+          <Item key={id}>
+            <Text>
               {currency}
               <span>UAH</span>
-            </p>
-            <p>{rate}</p>
-          </li>
+            </Text>
+            <Text>{rate.toFixed(2)}</Text>
+          </Item>
         ))}
-      </ul>
+      </List>
     </header>
   );
 };

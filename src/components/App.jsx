@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Container } from './Container/Container';
+import { Wrapper } from './Wrapper/Wrapper';
 import { CurrencyConverter } from './CurrencyConverter/CurrencyConverter';
 import { Header } from './Header/Header';
 import { getRates } from 'getRates/getRates';
@@ -18,7 +18,7 @@ export const App = () => {
   }, []);
 
   return (
-    <Container>
+    <Wrapper>
       {isLoading && <Loader />}
       {!isLoading && rates.length > 0 && (
         <>
@@ -27,6 +27,6 @@ export const App = () => {
         </>
       )}
       {error && <ErrorMessage />}
-    </Container>
+    </Wrapper>
   );
 };
