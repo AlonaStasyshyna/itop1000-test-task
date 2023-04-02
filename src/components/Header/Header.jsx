@@ -1,7 +1,7 @@
 export const Header = ({ rates }) => {
   return (
     <header>
-      <h1>Exchange Rates</h1>
+      <h1>Курси валют</h1>
       <p>{rates[0].exchangedate}</p>
 
       <ul>

@@ -23,7 +23,7 @@ export const App = () => {
       {!isLoading && rates.length > 0 && (
         <>
           <Header rates={rates} />
-          <CurrencyConverter />
+          <CurrencyConverter rates={rates} />
         </>
       )}
       {error && <ErrorMessage />}
